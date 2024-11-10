@@ -621,6 +621,9 @@ def DrawGraph(val,value):
     model = LinearRegression()
     model.fit(N_b_poly, times)
     y_predict = model.predict(N_b_poly)
+    coeff = model.coef_
+    intercept = model.intercept_
+    print("Уравнение полинома: y = {:.4e} * n^2 + {:.4e} * n + {:.4e} ".format(coeff[2], coeff[1], intercept))
     plt.figure(figsize=(12, 6))
     plt.scatter(sizes, times, marker='o', linestyle='-', color='y', label='Время выполнения')
     plt.plot(sizes, y_predict, color='y', label='Регрессионная кривая')
